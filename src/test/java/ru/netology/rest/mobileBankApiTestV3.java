@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
-
-class MobileBankApiTestV3 {
+class mobileBankApiTestV3 {
     @Test
     void shouldReturnDemoAccounts() {
         // Given - When - Then
@@ -23,6 +22,7 @@ class MobileBankApiTestV3 {
                 .contentType(ContentType.JSON)
                 .body("", hasSize(3))
                 .body("[0].currency", equalTo("RUB"))
+                .body("[1].currency", equalTo("USD"))
                 .body("[0].balance", greaterThanOrEqualTo(0))
         ;
     }
